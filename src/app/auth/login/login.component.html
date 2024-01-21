@@ -1,0 +1,17 @@
+<div class="flex flex-wrap flex-col justify-center w-full h-full content-center" [formGroup]="loginForm">
+  <p-fieldset legend="Login">
+    <div class="flex gap-3 flex-col">
+      <span class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input formControlName="email" type="text" pInputText id="email" placeholder="Email"/>
+      </span>
+      <span class="p-input-icon-left">
+        <i class="pi pi-lock"></i>
+        <input formControlName="password" type="password" pPassword [feedback]="false" placeholder="Password" />
+      </span>
+    </div>
+  </p-fieldset>
+  <p-button (click)="onLogin()">
+    Submit
+  </p-button>
+</div>

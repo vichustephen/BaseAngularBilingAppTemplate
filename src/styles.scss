@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@import "assets/customstyle.scss";
+
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+    @tailwind base;
+}
+
+@layer tailwind-utilities {
+    @tailwind components;
+    @tailwind utilities;
+}
+@import "primeicons/primeicons.css";
+
+html , body {
+  height: 100%;
+  width: 100%;
+}
