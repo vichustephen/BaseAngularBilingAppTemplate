@@ -25,10 +25,23 @@ export class SupabaseService {
   }
 
   signIn(email: string) {
-    return this.supabase.auth.signInWithOtp({ email })
+
+    return this.supabase.auth.signInWithOtp(
+      {
+        email : email,
+        options:{
+          shouldCreateUser:true,
+          emailRedirectTo: 'http://localhost:4200/app/dashboard'
+        }
+      }
+      )
   }
 
   signOut() {
     return this.supabase.auth.signOut()
+  }
+
+  getUser(){
+    return this.supabase.auth.getUser();
   }
 }

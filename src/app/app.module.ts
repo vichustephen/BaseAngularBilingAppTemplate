@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrimeNGConfig } from 'primeng/api';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './app-modules/auth/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { InputTextModule } from 'primeng/inputtext';
 
