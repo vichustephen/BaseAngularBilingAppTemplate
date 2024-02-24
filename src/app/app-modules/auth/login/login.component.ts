@@ -2,7 +2,7 @@ import { SupabaseService } from '../../../services/supabase.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ThemeService } from '../../../services/theme.service';
+import { LayoutService } from '../../../services/layout.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent {
   loginForm : FormGroup;
 
   constructor(private fb: FormBuilder, private supabaseService: SupabaseService,
-              private router: Router,private themeService: ThemeService){
+              private router: Router,private themeService: LayoutService){
 
   }
 

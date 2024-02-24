@@ -44,6 +44,11 @@
                 "inject": false
               },
               {
+                "input": "src/assets/themes/theme-lara-dark-blue.scss",
+                "bundleName": "lara-dark-blue",
+                "inject": false
+              },
+              {
                 "input": "src/assets/themes/theme-arya-green.scss",
                 "bundleName": "arya-green",
                 "inject": false
@@ -115,5 +120,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

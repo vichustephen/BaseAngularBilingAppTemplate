@@ -5,6 +5,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { PasswordModule } from 'primeng/password';
 import { PanelModule } from 'primeng/panel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidebarModule } from 'primeng/sidebar';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ButtonModule,
     FieldsetModule,
-    PanelModule
+    PanelModule,
+    SidebarModule
   ],
   exports:[
     CommonModule,
@@ -25,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     PasswordModule,
-    PanelModule
+    PanelModule,
+    SidebarModule
   ]
 })
 export class SharedModule { }
