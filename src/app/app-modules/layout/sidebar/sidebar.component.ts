@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,27 @@ import { Component, ElementRef } from '@angular/core';
 })
 export class SidebarComponent {
 
-  constructor(public el: ElementRef){
+  items: MenuItem[]
+  constructor(public el: ElementRef) {
 
+  }
+  ngOnInit() {
+    this.items = [
+      {
+        label: "sales",
+        items:
+          [
+            {
+              label : "sale orders",
+              routerLink:["/app/sales/sale-orders"],
+              routerLinkActiveOptions: { exact: true },
+            }
+          ]
+      },
+      {
+        label: "inventory",
+        routerLink: ['inventory']
+      }
+    ]
   }
 }

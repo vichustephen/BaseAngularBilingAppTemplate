@@ -6,7 +6,8 @@ const routes: Routes =
 [
   {
     path: '',
-    component: SaleOrderComponent
+    redirectTo: 'sale-orders',
+    pathMatch: 'full'
   },
   {
     path: 'sale-orders',
