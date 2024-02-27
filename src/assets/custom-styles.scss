@@ -1,0 +1,8 @@
+.sidebar {
+  .p-menuitem-link-active {
+    background-color: var(--primary-color);
+    .p-menuitem-text {
+      color: var(--primary-color-text);
+    }
+  }
+}
