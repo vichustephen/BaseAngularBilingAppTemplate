@@ -8,12 +8,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
 import { PanelMenuModule } from 'primeng/panelmenu';
-
-
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { StyleClassModule } from 'primeng/styleclass';
+import { RippleModule } from 'primeng/ripple';
+import { CustomMenuComponent } from './components/custom-menu/custom-menu.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CustomMenuComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +28,11 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     PanelModule,
     SidebarModule,
     MenuModule,
-    PanelMenuModule
+    PanelMenuModule,
+    AvatarModule,
+    AvatarGroupModule,
+    StyleClassModule,
+    RippleModule
   ],
   exports:[
     CommonModule,
@@ -35,7 +44,12 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     PanelModule,
     SidebarModule,
     MenuModule,
-    PanelMenuModule
+    PanelMenuModule,
+    AvatarModule,
+    AvatarGroupModule,
+    StyleClassModule,
+    RippleModule,
+    CustomMenuComponent
   ]
 })
 export class SharedModule { }

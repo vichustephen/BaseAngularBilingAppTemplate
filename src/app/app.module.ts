@@ -27,12 +27,14 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     SharedModule,
     InputTextModule
   ],
-  providers: [           {
-    provide: APP_INITIALIZER,
-    useFactory: initializeAppFactory,
-    deps: [PrimeNGConfig],
-    multi: true,
- },],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppFactory,
+      deps: [PrimeNGConfig],
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

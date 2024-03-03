@@ -6,3 +6,47 @@
     }
   }
 }
+
+.slideup {
+  animation: slideup 0.45s cubic-bezier(0, 1, 0, 1);
+}
+.slidedown {
+  animation: slidedown 0.45s ease-in-out;
+}
+
+@keyframes slideup {
+  0% {
+    max-height: 1000px;
+  }
+  100% {
+    max-height: 0;
+  }
+}
+
+@keyframes slidedown {
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.hover\:surface-100:hover {
+  background-color: var(--surface-100);
+}
