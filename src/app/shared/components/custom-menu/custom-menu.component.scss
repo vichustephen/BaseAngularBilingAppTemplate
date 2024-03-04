@@ -1,0 +1,21 @@
+.parentMenuSelection{
+  color: var(--highlight-text-color);
+
+}
+.subMenuSelection {
+  background: var(--primary-500);
+  color: var(--primary-color-text) !important;
+}
+
+a.subMenuSelection:hover{
+  color: var(--primary-color-text) !important;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover{
+  color: var(--highlight-text-color) !important;
+}
