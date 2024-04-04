@@ -34,6 +34,7 @@
 
 ::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
 }
 
 /* Handle */
@@ -49,4 +50,12 @@
 
 .hover\:surface-100:hover {
   background-color: var(--surface-100);
+}
+
+.card-container{
+    background: var(--surface-card);
+    border: var(--card-border);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }

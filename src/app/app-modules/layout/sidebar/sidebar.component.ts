@@ -25,6 +25,14 @@ export class SidebarComponent {
         icon:"pi pi-box",
         routerLink: ['inventory'],
         routerLinkActiveOptions: { exact: false },
+        items:
+        [
+          {
+            label : "items",
+            routerLink:["/app/inventory/items"],
+            routerLinkActiveOptions: { exact: true },
+          }
+        ]
       },
       {
         label: "sales",
@@ -36,6 +44,11 @@ export class SidebarComponent {
             {
               label : "sale orders",
               routerLink:["/app/sales/sale-orders"],
+              routerLinkActiveOptions: { exact: true },
+            },
+            {
+              label : "customers",
+              routerLink:["/app/sales/customers"],
               routerLinkActiveOptions: { exact: true },
             }
           ]

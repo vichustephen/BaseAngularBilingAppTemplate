@@ -1,4 +1,4 @@
-<div class="layout-topbar">
+<div class="layout-topbar gap-2">
   <div>
     <!-- <a class="layout-topbar-logo" routerLink="">
         <img src="assets/layout/images/{{layoutService.config().colorScheme === 'light' ? 'logo-dark' : 'logo-white'}}.svg" alt="logo">
@@ -13,7 +13,7 @@
     (click)="layoutService.showProfileSidebar()">
     <i class="pi pi-ellipsis-v"></i>
   </button> -->
-  <p>topbar works!</p>
+  <p>Shop Front</p>
 
   <div #topbarmenu class="layout-topbar-menu"
     [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
@@ -29,8 +29,9 @@
       <i class="pi pi-cog"></i>
       <span>Settings</span>
     </button> -->
-    <p-button (click)="switchTheme('lara-dark-blue')">
-      Settings
-    </p-button>
+    <button class="p-link" (click)="switchTheme()">
+      <i *ngIf="!isDarkMode" class="pi pi-sun"></i>
+      <i *ngIf="isDarkMode" class="pi pi-moon"></i>
+    </button>
   </div>
 </div>

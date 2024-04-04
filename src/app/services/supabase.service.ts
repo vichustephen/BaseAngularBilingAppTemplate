@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthChangeEvent, AuthSession, Session, SupabaseClient, createClient } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
+import { EnvService } from './env.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ export class SupabaseService {
   private supabase: SupabaseClient
   _session: AuthSession | null = null
 
-  constructor() {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
+  constructor(private env: EnvService) {
+    this.supabase = createClient(env.supabaseUrl, env.supabaseKey)
   }
 
   get session() {
@@ -33,6 +34,16 @@ export class SupabaseService {
           shouldCreateUser:true,
           emailRedirectTo: 'http://localhost:4200/app/dashboard'
         }
+      }
+      )
+  }
+
+  signInWithPassword(email: string, password: string) {
+
+    return this.supabase.auth.signInWithPassword(
+      {
+        email : email,
+        password : password
       }
       )
   }

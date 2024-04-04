@@ -8,11 +8,13 @@ import { PrimeNGConfig } from 'primeng/api';
 import { LoginComponent } from './app-modules/auth/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { InputTextModule } from 'primeng/inputtext';
+import { EnvService } from './services/env.service';
 
 
-const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
+const initializeAppFactory = (primeConfig: PrimeNGConfig, env: EnvService) => async () => {
   // ......
   primeConfig.ripple = true;
+  await env.loadAppConfig();
 };
 
 @NgModule({
@@ -31,7 +33,7 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () => {
     {
       provide: APP_INITIALIZER,
       useFactory: initializeAppFactory,
-      deps: [PrimeNGConfig],
+      deps: [PrimeNGConfig, EnvService],
       multi: true,
     }
   ],

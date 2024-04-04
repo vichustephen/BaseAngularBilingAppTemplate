@@ -12,9 +12,28 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
+import { TableModule } from 'primeng/table';
 import { CustomMenuComponent } from './components/custom-menu/custom-menu.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
 
-
+let primeNgModules = [
+  PasswordModule,
+  ButtonModule,
+  FieldsetModule,
+  PanelModule,
+  SidebarModule,
+  MenuModule,
+  PanelMenuModule,
+  AvatarModule,
+  AvatarGroupModule,
+  StyleClassModule,
+  RippleModule,
+  TableModule,
+  ProgressSpinnerModule,
+  ToastModule
+]
 @NgModule({
   declarations: [
     CustomMenuComponent
@@ -23,32 +42,14 @@ import { CustomMenuComponent } from './components/custom-menu/custom-menu.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ButtonModule,
-    FieldsetModule,
-    PanelModule,
-    SidebarModule,
-    MenuModule,
-    PanelMenuModule,
-    AvatarModule,
-    AvatarGroupModule,
-    StyleClassModule,
-    RippleModule
-  ],
+    HttpClientModule,
+    ...primeNgModules
+    ],
   exports:[
     CommonModule,
-    ButtonModule,
-    FieldsetModule,
     FormsModule,
     ReactiveFormsModule,
-    PasswordModule,
-    PanelModule,
-    SidebarModule,
-    MenuModule,
-    PanelMenuModule,
-    AvatarModule,
-    AvatarGroupModule,
-    StyleClassModule,
-    RippleModule,
+    ...primeNgModules,
     CustomMenuComponent
   ]
 })

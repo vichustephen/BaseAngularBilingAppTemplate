@@ -35,7 +35,7 @@ authCallback(event:any,session:any){
 }
   onLogin(){
     console.log(this.loginForm);
-    this.supabaseService.signIn(this.loginForm.controls['email'].value).then((val)=>{
+    this.supabaseService.signInWithPassword(this.loginForm.controls['email'].value, this.loginForm.controls["password"].value).then((val)=>{
       console.log(val);
     }).catch((val)=>{
       console.log(val);

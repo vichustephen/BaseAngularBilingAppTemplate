@@ -1,4 +1,4 @@
-import { Component, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { LayoutService } from '../services/layout.service';
 import { Subscription, filter } from 'rxjs';
 import { NavigationEnd, Router } from '@angular/router';
@@ -10,10 +10,11 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
   templateUrl: './app-root.component.html',
   styleUrl: './app-root.component.scss'
 })
-export class AppRootComponent {
+export class AppRootComponent implements OnInit {
 
   overlayMenuOpenSubscription: Subscription;
   menuOutsideClickListener: any;
+  showSpinner:boolean = false;
   @ViewChild(SidebarComponent) appSidebar!: SidebarComponent;
 
   @ViewChild(TopbarComponent) appTopbar!: TopbarComponent;
@@ -35,6 +36,13 @@ export class AppRootComponent {
             //this.hideProfileMenu();
         });
       });
+  }
+  ngOnInit(): void {
+    this.layoutService.isSpinnerShown.subscribe((val:boolean)=>{
+      setTimeout(()=>{
+        this.showSpinner = val;
+      })
+    })
   }
   hideMenu() {
     this.layoutService.state.overlayMenuActive = false;

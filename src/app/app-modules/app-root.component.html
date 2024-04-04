@@ -5,7 +5,9 @@
 <p-button (click)="sidebarVisible = !sidebarVisible">
 vis
 </p-button> -->
-
+<div class="progress-spinner" *ngIf="showSpinner">
+  <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="2" animationDuration=".5s"></p-progressSpinner>
+</div>
 <div class="layout-wrapper" [ngClass]="containerClass">
   <app-topbar></app-topbar>
   <div class="layout-sidebar">
