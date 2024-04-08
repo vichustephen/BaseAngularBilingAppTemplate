@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthChangeEvent, AuthSession, Session, SupabaseClient, createClient } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
@@ -9,17 +10,18 @@ import { EnvService } from './env.service';
 export class SupabaseService {
 
   private supabase: SupabaseClient
-  _session: AuthSession | null = null
+  private _session: AuthSession | null = null
 
-  constructor(private env: EnvService) {
+  constructor(private env: EnvService, private router: Router) {
     this.supabase = createClient(env.supabaseUrl, env.supabaseKey)
   }
 
   get session() {
-    this.supabase.auth.getSession().then(({ data }) => {
-      this._session = data.session
-    })
     return this._session
+  }
+  async getSession() {
+    this._session = (await this.supabase.auth.getSession()).data.session;
+    return this._session;
   }
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return this.supabase.auth.onAuthStateChange(callback)
@@ -49,7 +51,10 @@ export class SupabaseService {
   }
 
   signOut() {
-    return this.supabase.auth.signOut()
+    this.supabase.auth.signOut().then((res)=>{
+      this.router.navigateByUrl('/login');
+    });
+    return
   }
 
   getUser(){

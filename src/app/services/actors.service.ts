@@ -17,7 +17,7 @@ export class ActorsService {
 
   getActors(type:number):Observable<any> {
 
-    let url =`${this.env.apiBaseUrl}/${API_URL.GET_ACTORS}`;
+    let url =`${this.env.apiBaseUrl}/${this.env.apiVersion}/${API_URL.GET_ACTORS}`;
     let params = new HttpParams()
     .set('type',type);
     return this.http.get(url, { params : params });

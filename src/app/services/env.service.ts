@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, lastValueFrom, tap } from 'rxjs';
 
@@ -28,20 +28,15 @@ export class EnvService {
   public version = '';
   envSubject : BehaviorSubject<any>= new BehaviorSubject("");
   envSubject$: Observable<any> = this.envSubject.asObservable();
+  private httpClient : HttpClient;
 
-  constructor(private httpClient : HttpClient){
-
+  constructor(private handler: HttpBackend){
+    this.httpClient = new HttpClient(handler);
   }
   public async loadAppConfig(){
     return await lastValueFrom (this.httpClient.get(`./appconfig.json`)
       .pipe(
         tap((response : any) =>{
-         // const browserWindow: any = window || {};
-        //  this.env.environment = response.environment;
-         // browserWindow[`configuration`] = response || {};
-
-        //let currentApplication = response.currentApplication;
-        //let currentPlant =  response.currentPlant;
         let configObj = response["envAppConfig"];
         this.setEnvProperties(configObj);
         })

@@ -17,6 +17,9 @@ import { CustomMenuComponent } from './components/custom-menu/custom-menu.compon
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ToastModule } from 'primeng/toast';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ListboxModule } from 'primeng/listbox';
+
 
 let primeNgModules = [
   PasswordModule,
@@ -32,7 +35,9 @@ let primeNgModules = [
   RippleModule,
   TableModule,
   ProgressSpinnerModule,
-  ToastModule
+  ToastModule,
+  OverlayPanelModule,
+  ListboxModule
 ]
 @NgModule({
   declarations: [

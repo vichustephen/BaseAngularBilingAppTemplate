@@ -47,6 +47,9 @@ export class LayoutService {
     }
   }
 
+  showSpinner(shown:boolean){
+    this.isSpinnerShown.next(shown);
+  }
 
   onMenuToggle() {
     if (this.isOverlay()) {

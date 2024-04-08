@@ -9,6 +9,7 @@ vis
   <p-progressSpinner styleClass="w-4rem h-4rem" strokeWidth="2" animationDuration=".5s"></p-progressSpinner>
 </div>
 <div class="layout-wrapper" [ngClass]="containerClass">
+  <p-toast></p-toast>
   <app-topbar></app-topbar>
   <div class="layout-sidebar">
       <app-sidebar></app-sidebar>
@@ -17,7 +18,7 @@ vis
       <div class="layout-main">
           <router-outlet></router-outlet>
       </div>
-      <app-footer></app-footer>
+      <!-- <app-footer></app-footer> -->
   </div>
 
   <div class="layout-mask"></div>

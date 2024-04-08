@@ -1,6 +1,6 @@
-<div class="flex-col min-h-full grid gap-4">
-  <div class="card-container">
-    <p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+<div class="customers-container flex-col h-full flex gap-4">
+  <div class="card-container min-h-0">
+    <p-table [columns]="cols" [value]="products" [tableStyle]="{ 'min-width': '50rem' }" scrollHeight="flex" [scrollable]="true">
       <ng-template pTemplate="header" let-columns>
           <tr>
               <th *ngFor="let col of columns">

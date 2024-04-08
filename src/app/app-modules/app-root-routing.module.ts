@@ -12,12 +12,12 @@ const routes: Routes = [
     children:[
       {
         path:'dashboard',
-        //canActivate:[authGuard],
+        canActivate:[authGuard],
         component:DashboardComponent
       },
       {
         path:'sales',
-        //canActivate:[authGuard],
+        canActivate:[authGuard],
         loadChildren: () => import('./sales/sales.module').then(m => m.SalesModule)
       },
       {

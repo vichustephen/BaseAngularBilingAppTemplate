@@ -14,11 +14,5 @@ export class AppComponent {
     private router: Router){
 
 }
-  ngOninit(){
-    this.supabaseService.authChanges(this.authCallback);
-  }
-  authCallback(event:any,session:any){
-    console.log(event);
-    console.log(session);
-  }
+
 }

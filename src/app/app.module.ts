@@ -4,11 +4,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimeNGConfig } from 'primeng/api';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 import { LoginComponent } from './app-modules/auth/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { EnvService } from './services/env.service';
+import { authInterceptor } from './interceptors/auth.interceptor';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { httpErrorHandlerInterceptor } from './interceptors/http-error-handler.interceptor';
 
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig, env: EnvService) => async () => {
@@ -35,7 +38,9 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig, env: EnvService) => as
       useFactory: initializeAppFactory,
       deps: [PrimeNGConfig, EnvService],
       multi: true,
-    }
+    },
+      provideHttpClient(withInterceptors([authInterceptor,httpErrorHandlerInterceptor])),
+      MessageService
   ],
   bootstrap: [AppComponent]
 })

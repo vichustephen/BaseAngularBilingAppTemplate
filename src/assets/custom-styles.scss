@@ -1,12 +1,10 @@
 .sidebar {
-  .p-menuitem-link-active {
-    background-color: var(--primary-color);
-    .p-menuitem-text {
-      color: var(--primary-color-text);
-    }
-  }
-}
 
+
+}
+.userMenu .p-overlaypanel-content{
+  padding: 0px !important;
+}
 .slideup {
   animation: slideup 0.45s cubic-bezier(0, 1, 0, 1);
 }
@@ -54,7 +52,7 @@
 
 .card-container{
     background: var(--surface-card);
-    border: var(--card-border);
+    border: 1px solid lightgray;
     padding: 1rem;
     border-radius: 10px;
     margin-bottom: 1rem;

@@ -1,3 +1,4 @@
+import { SupabaseService } from './../services/supabase.service';
 import { Component, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { LayoutService } from '../services/layout.service';
 import { Subscription, filter } from 'rxjs';
@@ -18,7 +19,7 @@ export class AppRootComponent implements OnInit {
   @ViewChild(SidebarComponent) appSidebar!: SidebarComponent;
 
   @ViewChild(TopbarComponent) appTopbar!: TopbarComponent;
-  constructor(private layoutService: LayoutService, public renderer: Renderer2, public router: Router) {
+  constructor(private layoutService: LayoutService, public renderer: Renderer2, public router: Router, private supabaseService: SupabaseService) {
     this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
         if (!this.menuOutsideClickListener) {
             this.menuOutsideClickListener = this.renderer.listen('document', 'click', event => {
@@ -42,7 +43,12 @@ export class AppRootComponent implements OnInit {
       setTimeout(()=>{
         this.showSpinner = val;
       })
-    })
+    });
+    this.supabaseService.authChanges(this.authCallback);
+  }
+  authCallback(event:any,session:any){
+    console.log(event);
+    //console.log(session);
   }
   hideMenu() {
     this.layoutService.state.overlayMenuActive = false;

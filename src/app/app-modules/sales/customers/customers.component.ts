@@ -36,12 +36,16 @@ export class CustomersComponent implements OnInit {
   }
 
   getCustomers(){
-    this.layout.isSpinnerShown.next(true);
+    this.layout.showSpinner(true);
     this.actorsService.getActors(ActorTypes.CUSTOMER).subscribe((res:ApiResponse<Actor[]>)=>{
       this.products = res.data;
-      this.layout.isSpinnerShown.next(false);
+      this.products = [...this.products, ...this.products];
+      this.products = [...this.products, ...this.products];
+      this.products = [...this.products, ...this.products];
+
+      this.layout.showSpinner(false);
     },(err)=>{
-      this.layout.isSpinnerShown.next(false);
+      this.layout.showSpinner(false);
     })
   }
 }
