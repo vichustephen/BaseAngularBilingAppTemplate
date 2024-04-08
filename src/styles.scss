@@ -4,22 +4,24 @@
 
 @import "tailwindcss/components";
 
-@import "tailwindcss/utilities";
+//UNCOMMENT FOR TAILWIND
+//@import "tailwindcss/utilities";
 
 @import "assets/custom-styles.scss";
 
-@layer tailwind-base, primeng, tailwind-utilities;
+//UNCOMMENT FOR TAILWIND
+// @layer tailwind-base, primeng, tailwind-utilities;
 
-@layer tailwind-base {
-    @tailwind base;
-}
+// @layer tailwind-base {
+//     @tailwind base;
+// }
 
-@layer tailwind-utilities {
-    @tailwind components;
-    @tailwind utilities;
-}
+// @layer tailwind-utilities {
+//     @tailwind components;
+//     @tailwind utilities;
+// }
 
-// @import "primeflex/primeflex.css";
+//// @import "primeflex/primeflex.css";
 
 @import "primeicons/primeicons.css";
 @import "assets/layout/layout.scss";
